@@ -83,7 +83,6 @@ config nodes 'myshunt'
 	option AD '_blackhole'
 	option Direct '_direct'
 	option openai '_default'
-	option QPhone 'nil'
 	option Proxy '_default'
 	option China '_direct'
 	option default_node 'nil'
@@ -125,10 +124,10 @@ config shunt_rules 'Direct'
 	option domain_list 'geosite:private
 geosite:category-games@cn
 domain:chuangke.tv
+domain:huangjinyan.vip
 domain:push.apple.com
 domain:courier2-push-apple.com.akadns.net
-domain:push-apple.com.akadns.net
-full:time.windows.com'
+domain:push-apple.com.akadns.net'
 	option ip_list 'geoip:private
 2408:8888::8
 2408:8899::8
@@ -149,12 +148,6 @@ config shunt_rules 'OpenAI'
 	option remarks 'OpenAI'
 	option network 'tcp,udp'
 	option domain_list 'geosite:openai'
-
-config shunt_rules 'QPhone'
-	option remarks 'QPhone'
-	option network 'udp'
-	option port '443'
-	option source '192.168.11.199'
 
 config shunt_rules 'Proxy'
 	option remarks 'Proxy'
