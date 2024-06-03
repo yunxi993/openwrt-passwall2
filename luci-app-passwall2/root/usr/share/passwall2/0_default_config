@@ -93,7 +93,9 @@ config shunt_rules 'AD'
 	option remarks 'AD'
 	option network 'tcp,udp'
 	option domain_list 'geosite:category-httpdns
-regexp:\.arpa'
+domain:google.cn
+domain:gstatic.cn
+regexp:\.arpa$'
 	option ip_list '95.161.76.0/24
 101.124.19.122
 103.224.222.208
@@ -126,26 +128,26 @@ regexp:\.arpa'
 config shunt_rules 'Direct'
 	option remarks 'Direct'
 	option network 'tcp,udp'
-	option domain_list 'geosite:category-games@cn
+	option domain_list '#geosite:category-games@cn
 domain:chuangke.tv
 domain:huangjinyan.vip
-domain:push.apple.com
-domain:courier2-push-apple.com.akadns.net
-domain:push-apple.com.akadns.net'
-	option ip_list '2408:8888::8
+geosite:category-games@cn
+regexp:^(?:[0-9]|[1-4][0-9]|50)-courier\.push\.apple\.com$'
+	option ip_list '2402:4e00::
+2408:8888::8
 2408:8899::8
-2402:4e00::
 2400:3200::1
 2400:3200:baba::1
 2403:300:a42::/48
 17.57.144.0/22
-218.104.111.114
-218.104.111.122
-1.12.12.12
-120.53.53.53
 223.5.5.5
 223.6.6.6
-119.29.29.29'
+1.12.12.12
+120.53.53.53
+119.29.29.29
+114.114.114.114
+218.104.111.114
+218.104.111.122'
 
 config shunt_rules 'OpenAI'
 	option remarks 'OpenAI'
@@ -170,18 +172,16 @@ domain:nvidia.cn
 domain:geforce.cn
 domain:gstatic.cn
 domain:nvidia.com'
-	option ip_list '8.8.4.4
-8.8.8.8
-1.1.1.1
-1.0.0.1
-208.67.222.222
-208.67.220.220
-9.9.9.9
-149.112.112.112
-2001:4860:4860::8888
+	option ip_list '2001:4860:4860::8888
 2001:4860:4860::8844
 2606:4700:4700::1111
 2606:4700:4700::1001
+1.1.1.1
+1.0.0.1
+8.8.8.8
+8.8.4.4
+208.67.222.222
+208.67.220.220
 91.108.56.0/22
 91.108.4.0/22
 91.108.8.0/22
