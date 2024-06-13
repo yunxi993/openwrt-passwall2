@@ -128,10 +128,9 @@ regexp:\.arpa$'
 config shunt_rules 'Direct'
 	option remarks 'Direct'
 	option network 'tcp,udp'
-	option domain_list '#geosite:category-games@cn
-domain:chuangke.tv
+	option domain_list 'domain:chuangke.tv
 domain:huangjinyan.vip
-geosite:category-games@cn
+#geosite:category-games@cn
 regexp:^(?:[0-9]|[1-4][0-9]|50)-courier\.push\.apple\.com$'
 	option ip_list '2402:4e00::
 2408:8888::8
