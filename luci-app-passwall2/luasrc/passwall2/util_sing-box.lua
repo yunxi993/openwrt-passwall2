@@ -1238,7 +1238,7 @@ function gen_config(var)
 			disable_cache = (dns_cache and dns_cache == "0") and true or false,
 			disable_expire = false, --禁用 DNS 缓存过期。
 			independent_cache = false, --使每个 DNS 服务器的缓存独立，以满足特殊目的。如果启用，将轻微降低性能。
-			reverse_mapping = true, --在响应 DNS 查询后存储 IP 地址的反向映射以为路由目的提供域名。
+			reverse_mapping = false, --在响应 DNS 查询后存储 IP 地址的反向映射以为路由目的提供域名。
 			fakeip = nil,
 		}
 
@@ -1594,7 +1594,7 @@ function gen_dns_config(var)
 			disable_cache = (dns_cache and dns_cache == "0") and true or false,
 			disable_expire = false, --禁用 DNS 缓存过期。
 			independent_cache = false, --使每个 DNS 服务器的缓存独立，以满足特殊目的。如果启用，将轻微降低性能。
-			reverse_mapping = true, --在响应 DNS 查询后存储 IP 地址的反向映射以为路由目的提供域名。
+			reverse_mapping = false, --在响应 DNS 查询后存储 IP 地址的反向映射以为路由目的提供域名。
 		}
 
 		if dns_out_tag == "remote" then
