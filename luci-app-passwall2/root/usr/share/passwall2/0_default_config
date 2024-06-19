@@ -222,7 +222,7 @@ config subscribe_list
 	list filter_keep_list 'SG'
 
 config subscribe_list
-	option remark 'YF'
+	option remark 'TOTYUN'
 	option url ''
 	option allowInsecure '1'
 	option filter_keyword_mode '2'
@@ -233,11 +233,12 @@ config subscribe_list
 	option hysteria2_type 'global'
 	option auto_update '0'
 	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0'
-	list filter_keep_list '台湾'
-	list filter_keep_list '亚马逊新加坡'
+	list filter_keep_list 'singapore1'
+	list filter_keep_list 'singapore2'
+	list filter_keep_list 'singapore3'
 
 config subscribe_list
-	option remark 'YH'
+	option remark 'NetEase'
 	option url ''
 	option allowInsecure '1'
 	option filter_keyword_mode '2'
@@ -252,7 +253,7 @@ config subscribe_list
 	list filter_keep_list '新加坡'
 
 config subscribe_list
-	option remark 'LZY'
+	option remark 'YF'
 	option url ''
 	option allowInsecure '1'
 	option filter_keyword_mode '2'
@@ -263,5 +264,20 @@ config subscribe_list
 	option hysteria2_type 'global'
 	option auto_update '0'
 	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0'
-	list filter_keep_list '台湾 02'
-	list filter_keep_list '新加坡 04'
+	list filter_keep_list '台湾'
+	list filter_keep_list '亚马逊新加坡'
+
+	config subscribe_list
+	option remark 'SSY'
+	option url ''
+	option allowInsecure '1'
+	option filter_keyword_mode '2'
+	option ss_type 'global'
+	option trojan_type 'global'
+	option vmess_type 'global'
+	option vless_type 'global'
+	option hysteria2_type 'global'
+	option auto_update '0'
+	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0'
+	list filter_keep_list '台湾'
+	list filter_keep_list '新加坡'

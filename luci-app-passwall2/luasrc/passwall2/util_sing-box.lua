@@ -1256,7 +1256,7 @@ function gen_config(var)
 
 		local remote_server = {
 			tag = "remote",
-			address_strategy = "prefer_ipv4",
+			address_strategy = "prefer_ipv6",
 			strategy = remote_strategy,
 			address_resolver = "direct",
 			detour = default_outTag,
@@ -1621,7 +1621,7 @@ function gen_dns_config(var)
 
 			local server = {
 				tag = dns_out_tag,
-				address_strategy = "prefer_ipv4",
+				address_strategy = "prefer_ipv6",
 				strategy = (dns_query_strategy and dns_query_strategy ~= "UseIP") and "ipv4_only" or "prefer_ipv6",
 				detour = out_tag,
 			}
