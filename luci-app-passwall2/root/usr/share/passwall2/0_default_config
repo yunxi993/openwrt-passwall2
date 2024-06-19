@@ -217,7 +217,7 @@ config subscribe_list
 	option vless_type 'global'
 	option hysteria2_type 'global'
 	option auto_update '0'
-	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0'
+	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.115 Safari/537.36 Edg/122.0.0.0'
 	list filter_keep_list 'TW'
 	list filter_keep_list 'SG'
 
@@ -232,7 +232,7 @@ config subscribe_list
 	option vless_type 'global'
 	option hysteria2_type 'global'
 	option auto_update '0'
-	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0'
+	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.115 Safari/537.36 Edg/126.0.6478.115'
 	list filter_keep_list 'singapore1'
 	list filter_keep_list 'singapore2'
 	list filter_keep_list 'singapore3'
@@ -248,7 +248,7 @@ config subscribe_list
 	option vless_type 'global'
 	option hysteria2_type 'global'
 	option auto_update '0'
-	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0'
+	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.115 Safari/537.36 Edg/126.0.6478.115'
 	list filter_keep_list '台湾'
 	list filter_keep_list '新加坡'
 
@@ -263,7 +263,7 @@ config subscribe_list
 	option vless_type 'global'
 	option hysteria2_type 'global'
 	option auto_update '0'
-	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0'
+	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.115 Safari/537.36 Edg/126.0.6478.115'
 	list filter_keep_list '台湾'
 	list filter_keep_list '亚马逊新加坡'
 
@@ -278,6 +278,6 @@ config subscribe_list
 	option vless_type 'global'
 	option hysteria2_type 'global'
 	option auto_update '0'
-	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36 Edg/122.0.0.0'
+	option user_agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.115 Safari/537.36 Edg/126.0.6478.115'
 	list filter_keep_list '台湾'
 	list filter_keep_list '新加坡'

@@ -26,7 +26,7 @@ test_url() {
 	local extra_params=$4
 	curl --help all | grep "\-\-retry-all-errors" > /dev/null
 	[ $? == 0 ] && extra_params="--retry-all-errors ${extra_params}"
-	status=$(/usr/bin/curl -I -o /dev/null -skL --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" ${extra_params} --connect-timeout ${timeout} --retry ${try} -w %{http_code} "$url")
+	status=$(/usr/bin/curl -I -o /dev/null -skL --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.115 Safari/537.36" ${extra_params} --connect-timeout ${timeout} --retry ${try} -w %{http_code} "$url")
 	case "$status" in
 		204)
 			status=200
