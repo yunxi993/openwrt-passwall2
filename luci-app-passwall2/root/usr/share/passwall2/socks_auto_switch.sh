@@ -26,7 +26,7 @@ test_url() {
 	local extra_params=$4
 	curl --help all | grep "\-\-retry-all-errors" > /dev/null
 	[ $? == 0 ] && extra_params="--retry-all-errors ${extra_params}"
-	status=$(/usr/bin/curl -I -o /dev/null -skL --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36" ${extra_params} --connect-timeout ${timeout} --retry ${try} -w %{http_code} "$url")
+	status=$(/usr/bin/curl -I -o /dev/null -skL --user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.6478.115 Safari/537.36" ${extra_params} --connect-timeout ${timeout} --retry ${try} -w %{http_code} "$url")
 	case "$status" in
 		204)
 			status=200
@@ -41,12 +41,12 @@ test_proxy() {
 	if [ "$status" = "200" ]; then
 		result=0
 	else
-		status2=$(test_url "https://www.baidu.com" ${retry_num} ${connect_timeout})
+		status2=$(test_url "https://www.douyu.com" ${retry_num} ${connect_timeout})
 		if [ "$status2" = "200" ]; then
 			result=1
 		else
 			result=2
-			ping -c 3 -W 1 223.5.5.5 > /dev/null 2>&1
+			ping -c 3 -W 1 2408:8888::8 > /dev/null 2>&1
 			[ $? -eq 0 ] && {
 				result=1
 			}
