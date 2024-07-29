@@ -119,11 +119,17 @@ config shunt_rules 'Direct'
 	option remarks 'Direct'
 	option network 'tcp,udp'
 	option domain_list 'regexp:^(?:[0-9]|[1-4][0-9]|50)-courier\.push\.apple\.com$
+domain:rvfdp.com
+domain:37wan.com
 domain:96f2d.com
 domain:ap3615.com
 domain:oiz611.com
 domain:chuangke.tv
 domain:huangjinyan.vip
+full:ntp.tencent.com
+full:ntp1.aliyun.com
+full:time.apple.com
+full:time.windows.com
 geosite:category-games@cn'
 	option ip_list '2403:300:a42::/48
 17.57.144.0/22
