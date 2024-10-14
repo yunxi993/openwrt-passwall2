@@ -1102,7 +1102,7 @@ function gen_config(var)
 	
 		if not routing then
 			routing = {
-				domainStrategy = "IPOnDemand",
+				domainStrategy = "AsIs",
 				rules = {}
 			}
 		end
@@ -1261,10 +1261,8 @@ function gen_config(var)
 					address = direct_dns_udp_server,
 					port = tonumber(direct_dns_udp_port) or 53,
 					network = "udp",
-					nonIPQuery = "skip",
-					blockTypes = {
-						65
-					}
+					nonIPQuery = "drop",
+					blockTypes = {},
 				},
 				proxySettings = {
 					tag = "direct"
@@ -1274,7 +1272,7 @@ function gen_config(var)
 				settings = {
 					address = remote_dns_udp_server,
 					port = tonumber(remote_dns_udp_port) or 53,
-					network = _remote_dns_proto or "tcp",
+					network = _remote_dns_proto or "tcp,udp",
 					nonIPQuery = "drop"
 				}
 			}
@@ -1626,7 +1624,7 @@ function gen_dns_config(var)
 
 	if dns_listen_port then
 		routing = {
-			domainStrategy = "IPOnDemand",
+			domainStrategy = "AsIs",
 			rules = {}
 		}
 	
@@ -1797,7 +1795,7 @@ function gen_dns_config(var)
 			settings = {
 				address = other_type_dns_server or "1.1.1.1",
 				port = other_type_dns_port or 53,
-				network = other_type_dns_proto or "tcp",
+				network = other_type_dns_proto or "tcp,udp",
 				nonIPQuery = "drop"
 			}
 		})
