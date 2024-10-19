@@ -90,7 +90,7 @@ config shunt_rules 'AD'
 	option network 'tcp,udp'
 	option domain_list '#regexp:\.arpa$
 #regexp:https?dns\..*\.com$
-geosite:category-httpdns'
+geosite:category-httpdns-cn'
 	option ip_list ''
 
 config shunt_rules 'Direct'
@@ -173,7 +173,6 @@ config shunt_rules 'China'
 	option network 'tcp,udp'
 	option domain_list 'regexp:\.cn$
 geosite:private
-geosite:cn
 geosite:geolocation-cn'
 	option ip_list 'geoip:private
 geoip:cn'
