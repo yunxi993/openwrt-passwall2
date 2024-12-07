@@ -91,7 +91,7 @@ config shunt_rules 'AD'
 	option domain_list 'domain:ingest.sentry.io
 geosite:category-httpdns-cn
 #regexp:https?dns\..*\.com$'
-	option ip_list ''
+	option ip_list '95.161.76.100/31'
 
 config shunt_rules 'Direct'
 	option remarks 'Direct'
@@ -115,7 +115,6 @@ geosite:category-ntp-cn
 geosite:category-games@cn'
 	option ip_list '2403:300:a42::/48
 17.57.144.0/22
-17.0.0.0/8
 2408:8888::8
 2408:8899::8
 2400:3200::1
