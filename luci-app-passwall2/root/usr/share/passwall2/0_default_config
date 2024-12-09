@@ -88,7 +88,8 @@ config nodes 'myshunt'
 config shunt_rules 'AD'
 	option remarks 'AD'
 	option network 'tcp,udp'
-	option domain_list 'domain:ingest.sentry.io
+	option domain_list 'geosite:category-ads-all
+domain:ingest.sentry.io
 geosite:category-httpdns-cn
 #regexp:https?dns\..*\.com$'
 	option ip_list '95.161.76.100/31'
