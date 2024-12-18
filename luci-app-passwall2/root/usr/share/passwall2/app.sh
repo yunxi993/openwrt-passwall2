@@ -1098,7 +1098,7 @@ run_ipset_dnsmasq() {
 		no-poll
 		no-resolv
 		cache-size=${cache_size:-0}
-		dns-forward-max=${dns_forward_max:-1000}
+		dns-forward-max=${dns_forward_max:-1500}
 	EOF
 	for i in $(echo ${server_dns} | sed "s#,# #g"); do
 		echo "server=${i}" >> $config_file
@@ -1338,7 +1338,7 @@ REMOTE_DNS=$(config_t_get global remote_dns 1.1.1.1:53 | sed 's/#/:/g' | sed -E 
 REMOTE_FAKEDNS=$(config_t_get global remote_fakedns '0')
 REMOTE_DNS_QUERY_STRATEGY=$(config_t_get global remote_dns_query_strategy UseIPv4)
 WRITE_IPSET_DIRECT=$(config_t_get global write_ipset_direct 1)
-DNS_CACHE=$(config_t_get global dns_cache 1)
+DNS_CACHE=$(config_t_get global dns_cache 0)
 
 RESOLVFILE=/tmp/resolv.conf.d/resolv.conf.auto
 [ -f "${RESOLVFILE}" ] && [ -s "${RESOLVFILE}" ] || RESOLVFILE=/tmp/resolv.conf.auto
