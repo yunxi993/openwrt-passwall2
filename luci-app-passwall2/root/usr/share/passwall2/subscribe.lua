@@ -1681,15 +1681,8 @@ local execute = function()
 				local stdout = f:read("*all")
 				f:close()
 				raw = trim(stdout)
-				local old_md5 = value.md5 or ""
-				local new_md5 = luci.sys.exec("[ -f " .. tmp_file .. " ] && md5sum " .. tmp_file .. " | awk '{print $1}' || echo 0")
 				os.remove(tmp_file)
-				if old_md5 == new_md5 then
-					log('订阅:【' .. remark .. '】没有变化，无需更新。')
-				else
-					parse_link(raw, "2", remark, cfgid)
-					uci:set(appname, cfgid, "md5", new_md5)
-				end
+				parse_link(raw, "2", remark)
 			else
 				fail_list[#fail_list + 1] = value
 			end
