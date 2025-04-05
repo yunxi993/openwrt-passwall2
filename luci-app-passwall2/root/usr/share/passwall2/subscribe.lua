@@ -1718,16 +1718,27 @@ local execute = function()
 			local result = (not access_mode) and "自动" or (access_mode == "direct" and "直连访问" or (access_mode == "proxy" and "通过代理" or "自动"))
 			log('正在订阅:【' .. remark .. '】' .. url .. ' [' .. result .. ']')
 			local tmp_file = "/tmp/" .. cfgid
-			local raw = curl(url, tmp_file, ua, access_mode)
-			if raw == 0 then
+			value.http_code = curl(url, tmp_file, ua, access_mode)
+			if value.http_code ~= 200 then
+				fail_list[#fail_list + 1] = value
+			else
+				if luci.sys.call("[ -f " .. tmp_file .. " ] && sed -i -e '/^[ \t]*$/d' -e '/^[ \t]*\r$/d' " .. tmp_file) == 0 then
 					local f = io.open(tmp_file, "r")
 					local stdout = f:read("*all")
 					f:close()
-				raw = trim(stdout)
+					local raw_data = trim(stdout)
+					local old_md5 = value.md5 or ""
+					local new_md5 = luci.sys.exec("md5sum " .. tmp_file .. " 2>/dev/null | awk '{print $1}'"):gsub("\n", "")
 					os.remove(tmp_file)
-				parse_link(raw, "2", remark)
+					if old_md5 == new_md5 then
+						log('订阅:【' .. remark .. '】没有变化，无需更新。')
+					else
+						parse_link(raw_data, "2", remark, cfgid)
+						uci:set(appname, cfgid, "md5", new_md5)
+					end
 				else
 					fail_list[#fail_list + 1] = value
+				end
 			end
 			allowInsecure_default = true
 			filter_keyword_mode_default = uci:get(appname, "@global_subscribe[0]", "filter_keyword_mode") or "0"
