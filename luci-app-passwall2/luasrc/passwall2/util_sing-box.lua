@@ -1320,7 +1320,7 @@ function gen_config(var)
 			disable_cache = (dns_cache and dns_cache == "0") and true or false,
 			disable_expire = false, --禁用 DNS 缓存过期。
 			independent_cache = false, --使每个 DNS 服务器的缓存独立，以满足特殊目的。如果启用，将轻微降低性能。
-			reverse_mapping = true, --在响应 DNS 查询后存储 IP 地址的反向映射以为路由目的提供域名。
+			reverse_mapping = false, --在响应 DNS 查询后存储 IP 地址的反向映射以为路由目的提供域名。
 			fakeip = nil,
 		}
 
@@ -1338,7 +1338,7 @@ function gen_config(var)
 
 		local remote_server = {
 			tag = "remote",
-			address_strategy = "prefer_ipv4",
+			address_strategy = "prefer_ipv6",
 			strategy = remote_strategy,
 			address_resolver = "direct",
 			detour = COMMON.default_outbound_tag,
@@ -1449,7 +1449,7 @@ function gen_config(var)
 					}
 					if value.outboundTag ~= "block" and value.outboundTag ~= "direct" then
 						dns_rule.server = "remote"
-						dns_rule.rewrite_ttl = 30
+						dns_rule.rewrite_ttl = null
 						if value.outboundTag ~= COMMON.default_outbound_tag and remote_server.address and remote_dns_detour ~= "direct" then
 							local remote_dns_server = api.clone(remote_server)
 							remote_dns_server.tag = value.outboundTag

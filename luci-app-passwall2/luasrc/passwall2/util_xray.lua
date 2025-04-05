@@ -389,7 +389,7 @@ function gen_config_server(node)
 	end
 
 	routing = {
-		domainStrategy = "IPOnDemand",
+		domainStrategy = "AsIs",
 		rules = {
 			{
 				ip = {"10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"},
@@ -608,7 +608,7 @@ function gen_config(var)
 			}
 		}
 		if inbound.sniffing.enabled == true then
-			inbound.sniffing.destOverride = {"http", "tls", "quic"}
+			inbound.sniffing.destOverride = {}
 			inbound.sniffing.routeOnly = xray_settings.sniffing_override_dest ~= "1" or nil
 			inbound.sniffing.domainsExcluded = xray_settings.sniffing_override_dest == "1" and get_domain_excluded() or nil
 		end
@@ -653,7 +653,7 @@ function gen_config(var)
 			}
 		}
 		if inbound.sniffing.enabled == true then
-			inbound.sniffing.destOverride = {"http", "tls", "quic"}
+			inbound.sniffing.destOverride = {}
 			inbound.sniffing.metadataOnly = false
 			inbound.sniffing.routeOnly = xray_settings.sniffing_override_dest ~= "1" or nil
 			inbound.sniffing.domainsExcluded = xray_settings.sniffing_override_dest == "1" and get_domain_excluded() or nil
@@ -1173,7 +1173,7 @@ function gen_config(var)
 
 		if not routing then
 			routing = {
-				domainStrategy = "IPOnDemand",
+				domainStrategy = "AsIs",
 				rules = {}
 			}
 		end
@@ -1727,7 +1727,7 @@ function gen_dns_config(var)
 
 	if dns_listen_port then
 		routing = {
-			domainStrategy = "IPOnDemand",
+			domainStrategy = "AsIs",
 			rules = {}
 		}
 	
