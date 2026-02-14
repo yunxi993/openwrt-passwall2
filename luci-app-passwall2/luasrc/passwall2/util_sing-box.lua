@@ -1647,7 +1647,7 @@ function gen_config(var)
 
 		local remote_server = {
 			tag = "remote",
-			address_strategy = "prefer_ipv4",
+			address_strategy = "prefer_ipv6",
 			strategy = remote_strategy,
 			address_resolver = "direct",
 			detour = COMMON.default_outbound_tag,
@@ -1759,7 +1759,7 @@ function gen_config(var)
 					}
 					if value.outboundTag ~= "block" and value.outboundTag ~= "direct" then
 						dns_rule.server = "remote"
-						dns_rule.rewrite_ttl = 30
+						dns_rule.rewrite_ttl = null
 						if value.outboundTag ~= COMMON.default_outbound_tag and remote_server.address and remote_dns_detour ~= "direct" then
 							local remote_dns_server = api.clone(remote_server)
 							remote_dns_server.tag = value.shunt_tag
