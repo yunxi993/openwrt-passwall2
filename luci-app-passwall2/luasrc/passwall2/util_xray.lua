@@ -488,7 +488,7 @@ function gen_config_server(node)
 	end
 
 	routing = {
-		domainStrategy = "IPOnDemand",
+		domainStrategy = "AsIs",
 		rules = {
 			{
 				ip = {"10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"},
@@ -1301,7 +1301,7 @@ function gen_config(var)
 
 		if not routing then
 			routing = {
-				domainStrategy = "IPOnDemand",
+				domainStrategy = "AsIs",
 				rules = {}
 			}
 		end
@@ -1896,7 +1896,7 @@ function gen_dns_config(var)
 
 	if dns_listen_port then
 		routing = {
-			domainStrategy = "IPOnDemand",
+			domainStrategy = "AsIs",
 			rules = {}
 		}
 	
