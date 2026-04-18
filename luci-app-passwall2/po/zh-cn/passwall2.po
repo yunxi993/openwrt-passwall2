@@ -55,7 +55,7 @@ msgstr "节点配置"
 msgid "Running Status"
 msgstr "运行状态"
 
-msgid "Baidu Connection"
+msgid "Douyin Connection"
 msgstr "抖音连接"
 
 msgid "Google Connection"
