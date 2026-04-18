@@ -897,7 +897,7 @@ function gen_config(var)
 			}
 		}
 		if inbound.sniffing.enabled == true then
-			inbound.sniffing.destOverride = {"http", "tls"}
+			inbound.sniffing.destOverride = {"http", "tls", "quic"}
 			inbound.sniffing.routeOnly = false
 			inbound.sniffing.domainsExcluded = xray_settings.sniffing_override_dest == "1" and get_domain_excluded() or nil
 		end
@@ -1858,7 +1858,7 @@ function gen_config(var)
 			}
 		}
 		if inbound.sniffing.enabled == true then
-			inbound.sniffing.destOverride = {"http", "tls"}
+			inbound.sniffing.destOverride = {"http", "tls", "quic"}
 			inbound.sniffing.metadataOnly = false
 			inbound.sniffing.routeOnly = false
 			inbound.sniffing.domainsExcluded = xray_settings.sniffing_override_dest == "1" and get_domain_excluded() or nil

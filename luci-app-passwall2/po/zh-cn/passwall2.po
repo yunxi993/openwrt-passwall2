@@ -56,7 +56,7 @@ msgid "Running Status"
 msgstr "运行状态"
 
 msgid "Baidu Connection"
-msgstr "百度连接"
+msgstr "抖音连接"
 
 msgid "Google Connection"
 msgstr "谷歌连接"

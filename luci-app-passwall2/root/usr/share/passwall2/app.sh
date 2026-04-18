@@ -1326,7 +1326,7 @@ get_config() {
 	REMOTE_FAKEDNS=$(config_t_get global remote_fakedns '0')
 	REMOTE_DNS_QUERY_STRATEGY=$(config_t_get global remote_dns_query_strategy UseIPv4)
 	DNS_CACHE=$(config_t_get global dns_cache 0)
-	DNS_REDIRECT=$(config_t_get global dns_redirect 1)
+	DNS_REDIRECT=$(config_t_get global dns_redirect 0)
 
 	get_direct_dns
 
