@@ -584,7 +584,7 @@ function gen_config_server(node)
 	end
 
 	routing = {
-		domainStrategy = "IPOnDemand",
+		domainStrategy = "IPIfNonMatch",
 		rules = {
 			{
 				ip = {"10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"},
@@ -902,7 +902,7 @@ function gen_config(var)
 		}
 		if inbound.sniffing.enabled == true then
 			inbound.sniffing.destOverride = {"http", "tls", "quic"}
-			inbound.sniffing.routeOnly = xray_settings.sniffing_override_dest ~= "1" or nil
+			inbound.sniffing.routeOnly = false
 			inbound.sniffing.domainsExcluded = xray_settings.sniffing_override_dest == "1" and get_domain_excluded() or nil
 		end
 		if local_socks_username and local_socks_password and local_socks_username ~= "" and local_socks_password ~= "" then
@@ -1546,7 +1546,7 @@ function gen_config(var)
 
 		if not routing then
 			routing = {
-				domainStrategy = "IPOnDemand",
+				domainStrategy = "IPIfNonMatch",
 				rules = {}
 			}
 		end
@@ -1901,7 +1901,7 @@ function gen_config(var)
 		if inbound.sniffing.enabled == true then
 			inbound.sniffing.destOverride = {"http", "tls", "quic"}
 			inbound.sniffing.metadataOnly = false
-			inbound.sniffing.routeOnly = xray_settings.sniffing_override_dest ~= "1" or nil
+			inbound.sniffing.routeOnly = false
 			inbound.sniffing.domainsExcluded = xray_settings.sniffing_override_dest == "1" and get_domain_excluded() or nil
 		end
 		if remote_dns_fake or inner_fakedns == "1" then
