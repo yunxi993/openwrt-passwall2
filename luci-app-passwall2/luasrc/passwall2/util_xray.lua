@@ -584,7 +584,7 @@ function gen_config_server(node)
 	end
 
 	routing = {
-		domainStrategy = "IPIfNonMatch",
+		domainStrategy = "IPOnDemand",
 		rules = {
 			{
 				ip = {"10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"},
@@ -1551,7 +1551,7 @@ function gen_config(var)
 
 		if not routing then
 			routing = {
-				domainStrategy = "IPIfNonMatch",
+				domainStrategy = "IPOnDemand",
 				rules = {}
 			}
 		end
