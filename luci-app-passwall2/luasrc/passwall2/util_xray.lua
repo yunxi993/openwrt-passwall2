@@ -506,6 +506,7 @@ function gen_outbound(flag, node, tag, proxy_table)
 				serveStale = true,
 			}
 		end
+
 	end
 	return result
 end
@@ -616,7 +617,7 @@ function gen_config_server(node)
 	end
 
 	routing = {
-		domainStrategy = "AsIs",
+		domainStrategy = "IPOnDemand",
 		rules = {
 			{
 				ip = {"10.0.0.0/8", "172.16.0.0/12", "192.168.0.0/16"},
@@ -1527,7 +1528,7 @@ function gen_config(var)
 					ruleTag = "default",
 					outboundTag = default_outboundTag,
 				}
-				if node.domainStrategy == "AsIs" then
+				if node.domainStrategy == "IPIfNonMatch" then
 					rule.ip = { "0.0.0.0/0", "::/0" }
 				else
 					rule.network = "tcp,udp"
@@ -1844,7 +1845,7 @@ function gen_config(var)
 								local dns_block_mode = "Hosts" -- use the Hosts mode to block.
 								if dns_block_mode == "Hosts" then
 									for d_i, d_k in ipairs(value.domain) do
-										dns.hosts[d_k] = "0.0.0.0"
+										dns.hosts[d_k] = "127.0.0.1"
 									end
 									dns_server = nil
 								end
