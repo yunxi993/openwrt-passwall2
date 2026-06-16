@@ -114,7 +114,7 @@ function gen_outbound(flag, node, tag, proxy_table)
 				}
 			end
 		end
-		
+
 		if node.type == "Xray" then
 			if node.tls and node.tls == "1" then
 				node.stream_security = "tls"
@@ -873,7 +873,7 @@ function gen_config(var)
 	local routing = nil
 	local observatory = nil
 	local burstObservatory = nil
- 	local strategy = nil
+	local strategy = nil
 	local COMMON = {}
 
 	local CACHE_TEXT_FILE = CACHE_PATH .. "/cache_" .. flag .. ".txt"
@@ -929,7 +929,7 @@ function gen_config(var)
 		}
 		if inbound.sniffing.enabled == true then
 			inbound.sniffing.destOverride = {"http", "tls", "quic"}
-			inbound.sniffing.routeOnly = xray_settings.sniffing_override_dest ~= "1" or nil
+			inbound.sniffing.routeOnly = false
 			inbound.sniffing.domainsExcluded = xray_settings.sniffing_override_dest == "1" and get_domain_excluded() or nil
 		end
 		if local_socks_username and local_socks_password and local_socks_username ~= "" and local_socks_password ~= "" then
@@ -1161,7 +1161,7 @@ function gen_config(var)
 		table.insert(rules, { inboundTag = { inbound_tag }, balancerTag = balancer_tag })
 		return balancer_tag, loopback_outbound
 	end
-	
+
 	function set_outbound_detour(node, outbound, outbounds_table)
 		if not node or not outbound or not outbounds_table then return nil end
 		local default_outTag = outbound.tag
@@ -1578,11 +1578,11 @@ function gen_config(var)
 
 		if not routing then
 			routing = {
-				domainStrategy = "IPOnDemand",
+				domainStrategy = "AsIs",
 				rules = {}
 			}
 		end
-	
+
 		local dns_host = ""
 		if flag == "global" then
 			dns_host = uci:get(appname, "@global[0]", "dns_hosts") or ""
@@ -1608,7 +1608,7 @@ function gen_config(var)
 		end
 
 		local _remote_dns_ip = nil
-	
+
 		local _remote_dns = {
 			tag = remote_dns_tag,
 			queryStrategy = (remote_dns_query_strategy and remote_dns_query_strategy ~= "") and remote_dns_query_strategy or "UseIPv4"
@@ -1762,12 +1762,12 @@ function gen_config(var)
 				outboundTag = "dns-out"
 			})
 		end
-	
+
 		local default_dns_tag_name = remote_dns_tag
 		if not COMMON.default_outbound_tag or COMMON.default_outbound_tag == "direct" then
 			default_dns_tag_name = direct_dns_tag
 		end
-	
+
 		if dns_servers and #dns_servers > 0 then
 			-- Default DNS logic
 			local default_dns_server = nil
@@ -1943,7 +1943,7 @@ function gen_config(var)
 		if inbound.sniffing.enabled == true then
 			inbound.sniffing.destOverride = {"http", "tls", "quic"}
 			inbound.sniffing.metadataOnly = false
-			inbound.sniffing.routeOnly = xray_settings.sniffing_override_dest ~= "1" or nil
+			inbound.sniffing.routeOnly = false
 			inbound.sniffing.domainsExcluded = xray_settings.sniffing_override_dest == "1" and get_domain_excluded() or nil
 		end
 		if remote_dns_fake or inner_fakedns == "1" then
@@ -1968,7 +1968,7 @@ function gen_config(var)
 		udp_inbound.settings.network = "udp"
 		table.insert(inbounds, udp_inbound)
 	end
-	
+
 	if inbounds or outbounds then
 		local config = {
 			log = {
@@ -2065,7 +2065,7 @@ function gen_proto_config(var)
 	local server_port = var["server_port"]
 	local server_username = var["server_username"]
 	local server_password = var["server_password"]
-	
+
 	local inbounds = {}
 	local outbounds = {}
 	local routing = nil
@@ -2091,7 +2091,7 @@ function gen_proto_config(var)
 		end
 		table.insert(inbounds, inbound)
 	end
-	
+
 	if local_http_address and local_http_port then
 		local inbound = {
 			listen = local_http_address,
@@ -2111,7 +2111,7 @@ function gen_proto_config(var)
 		end
 		table.insert(inbounds, inbound)
 	end
-	
+
 	if server_proto ~= "nil" and server_address ~= "nil" and server_port ~= "nil" then
 		local outbound = {
 			protocol = server_proto,
@@ -2145,7 +2145,7 @@ function gen_proto_config(var)
 		} or nil,
 		sockopt = {mark = 255}
 	})
-	
+
 	local config = {
 		log = {
 			loglevel = "warning"
