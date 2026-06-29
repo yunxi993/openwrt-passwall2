@@ -1812,7 +1812,7 @@ function gen_config(var)
 		servers = {},
 		rules = {},
 		disable_cache = (dns_cache and dns_cache == "0") and true or false,
-		disable_expire = false, -- Disable DNS cache expiration.
+		disable_expire = true, -- Disable DNS cache expiration.
 		independent_cache = false, -- Make each DNS server's cache independent for specific purposes. If enabled, it will slightly reduce performance.
 		reverse_mapping = true, -- After responding to a DNS query, a reverse mapping of the IP address is stored to provide the domain name for routing purposes.
 	}
@@ -2018,7 +2018,7 @@ function gen_config(var)
 						domain_keyword = (value.domain_keyword and #value.domain_keyword > 0) and value.domain_keyword or nil,
 						domain_regex = (value.domain_regex and #value.domain_regex > 0) and value.domain_regex or nil,
 						rule_set = (value.rule_set and #value.rule_set > 0) and value.rule_set or nil,
-						disable_cache = false,
+						disable_cache = true,
 						invert = value.invert,
 					}
 					if value.outboundTag == "block" then
@@ -2032,7 +2032,7 @@ function gen_config(var)
 					end
 					if value.outboundTag ~= "block" and value.outboundTag ~= "direct" then
 						dns_rule.server = "remote"
-						dns_rule.rewrite_ttl = 30
+						dns_rule.rewrite_ttl = null
 						dns_rule.strategy = remote_strategy
 						dns_rule.client_subnet = remote_dns_client_ip
 						if value.outboundTag ~= COMMON.default_outbound_tag and remote_server.server and remote_dns_detour ~= "direct" then
@@ -2066,7 +2066,7 @@ function gen_config(var)
 					},
 					server = fakedns_tag,
 					disable_cache = true,
-					rewrite_ttl = 30,
+					rewrite_ttl = null,
 					strategy = remote_strategy,
 				}
 				table.insert(dns.rules, fakedns_dns_rule)
