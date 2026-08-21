@@ -1813,7 +1813,7 @@ function gen_config(var)
 		disable_cache = (dns_cache and dns_cache == "0") and true or false,
 		disable_expire = false, -- Disable DNS cache expiration.
 		independent_cache = false, -- Make each DNS server's cache independent for specific purposes. If enabled, it will slightly reduce performance.
-		reverse_mapping = true, -- After responding to a DNS query, a reverse mapping of the IP address is stored to provide the domain name for routing purposes.
+		reverse_mapping = false, -- After responding to a DNS query, a reverse mapping of the IP address is stored to provide the domain name for routing purposes.
 	}
 
 	table.insert(dns.servers, {
