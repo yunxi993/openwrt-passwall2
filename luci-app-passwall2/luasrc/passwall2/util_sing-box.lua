@@ -2023,7 +2023,7 @@ function gen_config(var)
 						domain_keyword = (value.domain_keyword and #value.domain_keyword > 0) and value.domain_keyword or nil,
 						domain_regex = (value.domain_regex and #value.domain_regex > 0) and value.domain_regex or nil,
 						rule_set = (value.rule_set and #value.rule_set > 0) and value.rule_set or nil,
-						disable_cache = false,
+						disable_cache = true,
 						invert = value.invert,
 					}
 					if value.outboundTag == "block" then
@@ -2051,7 +2051,7 @@ function gen_config(var)
 					end
 					if value.outboundTag ~= "block" and value.outboundTag ~= "direct" then
 						dns_rule.server = "remote"
-						dns_rule.rewrite_ttl = tonumber(remote_rewrite_ttl)
+						dns_rule.rewrite_ttl = nil
 						if true then
 							local block_rule
 							if remote_strategy == "ipv4_only" then
@@ -2131,7 +2131,7 @@ function gen_config(var)
 			local remote_dns_rule = {
 				server = "remote",
 				disable_cache = true,
-				rewrite_ttl = tonumber(remote_rewrite_ttl)
+				rewrite_ttl = nil
 			}
 			table.insert(dns.rules, remote_dns_rule)
 		end
