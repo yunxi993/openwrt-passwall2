@@ -1835,7 +1835,7 @@ function gen_config(var)
 	dns = {
 		servers = {},
 		rules = {},
-		disable_cache = (dns_cache and dns_cache == "0") and true or false,
+		disable_cache = true,
 		disable_expire = false, -- Disable DNS cache expiration.
 		independent_cache = false, -- Make each DNS server's cache independent for specific purposes. If enabled, it will slightly reduce performance.
 		reverse_mapping = true, -- After responding to a DNS query, a reverse mapping of the IP address is stored to provide the domain name for routing purposes.
@@ -2056,7 +2056,7 @@ function gen_config(var)
 						domain_keyword = (value.domain_keyword and #value.domain_keyword > 0) and value.domain_keyword or nil,
 						domain_regex = (value.domain_regex and #value.domain_regex > 0) and value.domain_regex or nil,
 						rule_set = (value.rule_set and #value.rule_set > 0) and value.rule_set or nil,
-						disable_cache = false,
+						disable_cache = true,
 						invert = value.invert,
 					}
 					if value.outboundTag == "block" then

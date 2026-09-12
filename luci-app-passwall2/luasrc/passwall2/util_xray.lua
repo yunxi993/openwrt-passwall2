@@ -478,7 +478,7 @@ function gen_outbound(flag, node, tag, proxy_table)
 				port = config_port,
 				domains = {"full:" .. node.address},
 				finalQuery = true,
-				disableCache = false,
+				disableCache = true,
 				serveStale = true,
 			}
 		end
@@ -1543,7 +1543,7 @@ function gen_config(var)
 	dns = {
 		tag = "dns-global",
 		hosts = {},
-		disableCache = (dns_cache and dns_cache == "0") and true or false,
+		disableCache = true,
 		disableFallback = true,
 		disableFallbackIfMatch = true,
 		servers = {},
@@ -1716,7 +1716,7 @@ function gen_config(var)
 					address = "localhost",
 					domains = domain,
 					finalQuery = true,
-					disableCache = false,
+					disableCache = true,
 					serveStale = true,
 				})
 			end
