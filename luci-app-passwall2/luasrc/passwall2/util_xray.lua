@@ -1560,7 +1560,7 @@ function gen_config(var)
 	dns = {
 		tag = "dns-global",
 		hosts = {},
-		disableCache = true,
+		disableCache = (dns_cache and dns_cache == "0") and true or false,
 		disableFallback = true,
 		disableFallbackIfMatch = true,
 		servers = {},
