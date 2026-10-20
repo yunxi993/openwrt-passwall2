@@ -2205,8 +2205,14 @@ msgstr "Socks切换检测：端口 [%s] 节点切换完毕！"
 msgid "Socks switch detection: Port [%s] [%s:[%s]] abnormal."
 msgstr "Socks切换检测：端口 [%s] 异常。"
 
-msgid "Socks switch detection: Port [%s] all nodes are unavailable!"
-msgstr "Socks切换检测：端口 [%s] 所有节点均不可用！"
+msgid "Socks switch detection: Port [%s] all nodes are unavailable or switching failed!"
+msgstr "Socks切换检测：端口 [%s] 所有节点均不可用或切换失败！"
+
+msgid "Socks switch detection: Port [%s] node switch failed, continue trying other nodes!"
+msgstr "Socks切换检测：端口 [%s] 节点切换失败，继续尝试其他节点！"
+
+msgid "Socks switch detection: Port [%s] failed to restore the primary node!"
+msgstr "Socks切换检测：端口 [%s] 恢复主节点失败！"
 
 msgid "Socks switch detection: Port [%s] Unknown error."
 msgstr "Socks切换检测：端口 [%s] 未知错误。"
@@ -2430,6 +2436,9 @@ msgstr "开始订阅：%s"
 msgid "Subscription: [%s] No changes, no update required."
 msgstr "订阅:【%s】没有变化，无需更新。"
 
+msgid "Refresh subscription [%s] account usage and expiration information."
+msgstr "刷新订阅【%s】账户用量与到期时间信息。"
+
 msgid "[%s] Subscription failed. This could be due to an invalid subscription address or a network issue. Please diagnose the problem! [%s]"
 msgstr "【%s】订阅失败，可能是订阅地址无效，或是网络问题，请诊断！[%s]"
 
@@ -2489,4 +2498,16 @@ msgstr "WARP 设备私钥"
 
 msgid "WARP Endpoint Public Key"
 msgstr "WARP 服务端公钥"
+
+msgid "Installing..."
+msgstr "安装中"
+
+msgid "Do not refresh or switch pages during installation."
+msgstr "安装时请勿刷新页面和切换页面。"
+
+msgid "Update failed"
+msgstr "更新失败"
+
+msgid "Unknown error"
+msgstr "未知错误"
 
