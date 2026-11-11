@@ -2152,7 +2152,7 @@ function gen_config(var)
 						domain_keyword = (value.domain_keyword and #value.domain_keyword > 0) and value.domain_keyword or nil,
 						domain_regex = (value.domain_regex and #value.domain_regex > 0) and value.domain_regex or nil,
 						rule_set = (value.rule_set and #value.rule_set > 0) and value.rule_set or nil,
-						disable_cache = true,
+						disable_cache = false,
 						invert = value.invert,
 					}
 					if value.outboundTag == "block" then
