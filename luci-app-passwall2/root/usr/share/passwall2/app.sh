@@ -815,7 +815,7 @@ run_ipset_dnsmasq() {
 		no-resolv
 		strict-order
 		cache-size=${cache_size:-0}
-		dns-forward-max=${dns_forward_max:-1000}
+		dns-forward-max=${dns_forward_max:-2000}
 	EOF
 	for i in $(echo ${server_dns} | sed "s#,# #g"); do
 		echo "server=${i}" >> $config_file
